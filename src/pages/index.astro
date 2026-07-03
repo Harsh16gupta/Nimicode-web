@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title="Nimicode — Autonomous AI Coding Agent in your Terminal">
+  <!-- Navbar wrapper spacing -->
+  <Navbar />
+  
+  <main class="relative min-h-screen flex flex-col justify-center overflow-x-hidden">
+    <!-- Grid/Dot/Ambient glow styling background effects -->
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(22,163,74,0.06),rgba(255,255,255,0))]" />
+    
+    <Hero />
+  </main>
+</Layout>

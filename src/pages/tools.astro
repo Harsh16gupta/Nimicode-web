@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ToolsGrid from '../components/ToolsGrid.tsx';
+import { GitBranch, Search, TestTube2, RotateCcw } from 'lucide-react';
+---
+
+<Layout title="Tools — Nimicode Agent Tools Loop" description="Every action Nimicode takes — reading, writing, executing — funnels through a typed tool interface. Here's what ships today.">
+  <Navbar />
+  
+  <main class="relative min-h-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(22,163,74,0.04),rgba(255,255,255,0))] pt-20 pb-24 overflow-x-hidden">
+    <div class="max-w-[1280px] mx-auto px-5 sm:px-8 pt-[clamp(48px,8vw,88px)]">
+      
+      <!-- Page Header -->
+      <header class="animate-fade-up max-w-[800px]">
+        <span class="text-xs font-mono text-accent bg-accent-soft rounded-full px-3 py-1 inline-block mb-4 tracking-wider uppercase font-semibold">
+          THE AGENT'S HANDS
+        </span>
+        <h1 class="font-heading font-semibold text-text leading-[1.1] tracking-[-0.015em] mb-5" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+          Three tools. One loop.<br />Infinitely composable.
+        </h1>
+        <p class="font-body font-normal text-text-muted leading-[1.6] max-w-[640px] text-[clamp(0.95rem,2vw,1.1rem)]">
+          Every action Nimicode takes — reading, writing, executing — funnels through a typed tool interface the LLM calls directly. Here's what ships today, and what's next.
+        </p>
+      </header>
+
+      <!-- Tool Cards Grid (React Island for stagger animation) -->
+      <ToolsGrid client:visible />
+
+      <!-- "Coming Soon" Row -->
+      <div class="reveal-on-scroll opacity-0 mt-10">
+        <h3 class="text-xs font-mono text-text-muted/60 uppercase tracking-widest mb-4">COMING SOON TO THE LOOP</h3>
+        <div class="flex gap-3 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+          <!-- Card 1 -->
+          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
+            <div class="text-text-muted/80">
+              <GitBranch size={16} />
+            </div>
+            <div>
+              <span class="font-mono font-semibold text-text">git_diff / git_commit</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
+            <div class="text-text-muted/80">
+              <Search size={16} />
+            </div>
+            <div>
+              <span class="font-mono font-semibold text-text">grep_search</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
+            <div class="text-text-muted/80">
+              <TestTube2 size={16} />
+            </div>
+            <div>
+              <span class="font-mono font-semibold text-text">run_tests (structured)</span>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
+            <div class="text-text-muted/80">
+              <RotateCcw size={16} />
+            </div>
+            <div>
+              <span class="font-mono font-semibold text-text">checkpoint / undo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- "How tools plug in" Section -->
+      <section class="reveal-on-scroll opacity-0 mt-24">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left: Ordered list -->
+          <div class="flex flex-col">
+            <h2 class="font-heading font-semibold text-text text-2xl lg:text-3xl mb-6">
+              Add a tool in four steps
+            </h2>
+            <ol class="space-y-4">
+              <li class="flex items-start gap-4">
+                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                  1
+                </span>
+                <span class="text-text-muted leading-relaxed">
+                  Implement it in <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/</code>
+                </span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                  2
+                </span>
+                <span class="text-text-muted leading-relaxed">
+                  Export it from <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/index.ts</code>
+                </span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                  3
+                </span>
+                <span class="text-text-muted leading-relaxed">
+                  Add its JSON schema to <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">toolDefinitions</code>
+                </span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                  4
+                </span>
+                <span class="text-text-muted leading-relaxed">
+                  Add a case to the <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">executeTool</code> switch
+                </span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Right: Code Panel (Terminal Chrome) -->
+          <div class="w-full bg-terminal-bg rounded-xl border border-terminal-border shadow-lg flex flex-col overflow-hidden">
+            <!-- Window header -->
+            <div class="flex items-center justify-between px-4 py-2.5 border-b border-terminal-border bg-terminal-bg/80 select-none">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-[#FF5F57]" />
+                <span class="w-2 h-2 rounded-full bg-[#FEBC2E]" />
+                <span class="w-2 h-2 rounded-full bg-[#28C840]" />
+              </div>
+              <span class="font-mono text-[10px] text-terminal-text/40 font-medium">
+                src/tools/definitions.ts
+              </span>
+              <div class="w-8" />
+            </div>
+            
+            <!-- Code content -->
+            <pre class="p-5 font-mono text-xs leading-relaxed overflow-x-auto text-terminal-text/90 select-text"><code class="block"><span style="color: rgba(255,255,255,0.4)">// 1. Schema representation of a file reader tool</span>
+<span style="color: #F43F5E">export const</span> <span style="color: #E4E4E7">readToolDefinition</span> = &#123;
+  <span style="color: #7DD3FC">name</span>: <span style="color: #4ADE80">"read_file"</span>,
+  <span style="color: #7DD3FC">description</span>: <span style="color: #4ADE80">"Reads contents of any file in workspace"</span>,
+  <span style="color: #7DD3FC">parameters</span>: &#123;
+    <span style="color: #7DD3FC">type</span>: <span style="color: #4ADE80">"object"</span>,
+    <span style="color: #7DD3FC">properties</span>: &#123;
+      <span style="color: #7DD3FC">path</span>: &#123;
+        <span style="color: #7DD3FC">type</span>: <span style="color: #4ADE80">"string"</span>,
+        <span style="color: #7DD3FC">description</span>: <span style="color: #4ADE80">"Target workspace-relative file path"</span>
+      &#125;
+    &#125;,
+    <span style="color: #7DD3FC">required</span>: [<span style="color: #4ADE80">"path"</span>]
+  &#125;
+&#125;;</code></pre>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Simple CSS IntersectionObserver reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-up');
+        entry.target.classList.remove('opacity-0');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  /* Custom scrollbar for horizontal pills list */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 5px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(20, 22, 26, 0.08);
+    border-radius: 99px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 22, 26, 0.16);
+  }
+</style>

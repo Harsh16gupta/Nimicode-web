@@ -1,0 +1,99 @@
+---
+import MobileMenu from './MobileMenu.tsx';
+import { Star, Terminal } from 'lucide-react';
+
+const links = [
+  { name: 'Docs', href: 'https://github.com/Harsh16gupta/Nimicode-web#readme' },
+  { name: 'Tools', href: '/tools' },
+  { name: 'Providers', href: '/providers' },
+  { name: 'GitHub', href: 'https://github.com/Harsh16gupta/Nimicode-web' },
+  { name: 'Roadmap', href: '/roadmap' }
+];
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full">
+  <div class="max-w-[1280px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+    <!-- Left: Logo & Wordmark -->
+    <a href="/" class="flex items-center gap-2 group relative z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" fill="none" class="transition-transform group-hover:scale-105 duration-300">
+        <path d="M32 32 L96 32 L96 96 L160 96 L160 32 L224 32 L224 224 L160 224 L160 128 L96 128 L96 224 L32 224 Z" fill="var(--color-text)"/>
+        <rect x="96" y="96" width="64" height="64" fill="var(--color-accent)"/>
+      </svg>
+      <span class="font-mono text-[15px] font-semibold tracking-tight lowercase text-text select-none">
+        nimicode
+      </span>
+    </a>
+
+    <!-- Center: Links (Desktop) -->
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class="text-sm font-medium text-text-muted hover:text-text transition-colors duration-200"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right: Star & Install Button (Desktop) -->
+    <div class="hidden md:flex items-center gap-4">
+      <!-- Github star-count pill -->
+      <a 
+        href="https://github.com/Harsh16gupta/Nimicode-web"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border border-border hover:border-text/30 rounded-full px-3 py-1.5 text-sm font-mono flex items-center gap-1.5 transition-colors duration-200"
+      >
+        <Star size={14} className="fill-current text-text/80" />
+        <span>Star</span>
+        <span class="text-text-muted/30">|</span>
+        <span id="github-stars-desktop" class="font-semibold">1,428</span>
+      </a>
+
+      <!-- Install button -->
+      <a 
+        href="#install" 
+        class="bg-accent hover:bg-accent-hover text-white rounded-full px-5 py-2.5 text-sm font-semibold flex items-center gap-2 transition-all duration-200 shadow-sm hover:shadow active:scale-95"
+      >
+        <Terminal size={16} />
+        <span>Install</span>
+      </a>
+    </div>
+
+    <!-- Mobile Navigation Drawer Trigger -->
+    <div class="md:hidden flex items-center">
+      <MobileMenu client:load />
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('navbar');
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('backdrop-blur-md', 'bg-white/75', 'border-b', 'border-[var(--color-border)]', 'shadow-sm');
+    } else {
+      nav?.classList.remove('backdrop-blur-md', 'bg-white/75', 'border-b', 'border-[var(--color-border)]', 'shadow-sm');
+    }
+  };
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Init script check on page mount
+  
+  // Dynamic github star fetching
+  fetch('https://api.github.com/repos/Harsh16gupta/Nimicode-web')
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error('Network error');
+    })
+    .then(data => {
+      if (data && data.stargazers_count) {
+        const count = data.stargazers_count.toLocaleString();
+        const starsEl = document.getElementById('github-stars-desktop');
+        if (starsEl) starsEl.textContent = count;
+      }
+    })
+    .catch(() => {
+      // Fail silently, keep static count
+    });
+</script>

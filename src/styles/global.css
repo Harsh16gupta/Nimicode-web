@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-text: #14161A;
+  --color-text-muted: rgba(20, 22, 26, 0.64);
+  --color-border: rgba(20, 22, 26, 0.09);
+  --color-accent: #16A34A;
+  --color-accent-hover: #15803D;
+  --color-accent-soft: rgba(22, 163, 74, 0.10);
+  --color-terminal-bg: #0F1115;
+  --color-terminal-text: #E4E4E7;
+  --color-terminal-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+}
+
+/* Custom styles & animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Blinking terminal cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}

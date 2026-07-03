@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primitive-color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primitive-color-grey-800);
+  border-radius: var(--primitive-radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primitive-color-grey-700);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--primitive-color-black);
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+}
+
+p {
+  color: var(--color-muted-foreground);
+  font-weight: 400;
+  letter-spacing: -0.011em;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-feature-settings: "liga" 0; /* Turn off ligatures for terminal authenticity */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--primitive-duration-fast) ease;
+}
+
+/* Base Layout Containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--primitive-spacing-6);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--primitive-spacing-8);
+  }
+}
+
+/* Section Wrapper */
+.section {
+  padding: var(--spacing-section-mobile) 0;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: var(--spacing-section-desktop) 0;
+  }
+}
+
+/* Accent details */
+.text-accent {
+  color: var(--color-primary);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Utility Animations & States */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--primitive-duration-slow) cubic-bezier(0.16, 1, 0.3, 1),
+              transform var(--primitive-duration-slow) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyboard Accessibility Focus Indicator */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* Accessibility screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

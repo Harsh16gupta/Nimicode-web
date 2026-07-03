@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ActiveProviderCard from '../components/ActiveProviderCard.tsx';
+import { 
+  Sparkles, 
+  Brain, 
+  HardDrive, 
+  Route, 
+  Plug, 
+  ShieldCheck, 
+  DollarSign, 
+  Lock 
+} from 'lucide-react';
+---
+
+<Layout title="Providers — Nimicode Agent Models" description="Bring your own model. Nimicode works with DeepSeek today, and the architecture is built to support any OpenAI-compatible provider.">
+  <Navbar />
+  
+  <main class="relative min-h-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(22,163,74,0.04),rgba(255,255,255,0))] pt-20 pb-24 overflow-x-hidden">
+    <div class="max-w-[1280px] mx-auto px-5 sm:px-8 pt-[clamp(48px,8vw,88px)]">
+      
+      <!-- Page Header -->
+      <header class="animate-fade-up max-w-[800px]">
+        <span class="text-xs font-mono text-accent bg-accent-soft rounded-full px-3 py-1 inline-block mb-4 tracking-wider uppercase font-semibold">
+          PROVIDER-AGNOSTIC
+        </span>
+        <h1 class="font-heading font-semibold text-text leading-[1.1] tracking-[-0.015em] mb-5" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+          Bring your own model.
+        </h1>
+        <p class="font-body font-normal text-text-muted leading-[1.6] max-w-[640px] text-[clamp(0.95rem,2vw,1.1rem)]">
+          Nimicode talks to LLM providers through one interface. DeepSeek ships today — the architecture was built so more are a config away, not a rewrite.
+        </p>
+      </header>
+
+      <!-- Active Provider Card (React Island for pulse on mount) -->
+      <ActiveProviderCard client:load />
+
+      <!-- Provider Roadmap Grid -->
+      <div class="reveal-on-scroll opacity-0 mt-14">
+        <h3 class="text-xs font-mono text-text-muted/60 uppercase tracking-widest mb-6">PLANNED & CONSIDERED PROVIDERS</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <!-- Anthropic -->
+          <div class="border border-dashed border-border rounded-xl p-5 opacity-75 hover:opacity-100 transition-all duration-200 bg-white/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
+                  <Sparkles size={16} />
+                </div>
+                <span class="font-mono font-semibold text-sm text-text">Anthropic (Claude)</span>
+              </div>
+              <p class="text-xs text-text-muted mt-3 leading-relaxed">
+                First-class Claude 3.5 Sonnet support for advanced multi-step coding reasoning.
+              </p>
+            </div>
+            <div class="text-[10px] font-mono text-accent bg-accent-soft rounded px-1.5 py-0.5 mt-4 self-start font-semibold uppercase">
+              planned
+            </div>
+          </div>
+
+          <!-- OpenAI -->
+          <div class="border border-dashed border-border rounded-xl p-5 opacity-75 hover:opacity-100 transition-all duration-200 bg-white/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
+                  <Brain size={16} />
+                </div>
+                <span class="font-mono font-semibold text-sm text-text">OpenAI (GPT)</span>
+              </div>
+              <p class="text-xs text-text-muted mt-3 leading-relaxed">
+                GPT-4o integration for high-throughput, fast code modifications.
+              </p>
+            </div>
+            <div class="text-[10px] font-mono text-accent bg-accent-soft rounded px-1.5 py-0.5 mt-4 self-start font-semibold uppercase">
+              planned
+            </div>
+          </div>
+
+          <!-- Ollama -->
+          <div class="border border-dashed border-border rounded-xl p-5 opacity-75 hover:opacity-100 transition-all duration-200 bg-white/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
+                  <HardDrive size={16} />
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-semibold text-sm text-text">Ollama</span>
+                  <span class="text-[9px] font-mono font-bold bg-[#EAB308]/10 text-[#CA8A04] rounded px-1.5 py-0.5">offline</span>
+                </div>
+              </div>
+              <p class="text-xs text-text-muted mt-3 leading-relaxed">
+                Run local models like Llama 3 or Qwen on your own machine.
+              </p>
+            </div>
+            <div class="text-[10px] font-mono text-text-muted bg-black/5 rounded px-1.5 py-0.5 mt-4 self-start font-semibold uppercase">
+              under consideration
+            </div>
+          </div>
+
+          <!-- OpenRouter -->
+          <div class="border border-dashed border-border rounded-xl p-5 opacity-75 hover:opacity-100 transition-all duration-200 bg-white/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
+                  <Route size={16} />
+                </div>
+                <span class="font-mono font-semibold text-sm text-text">OpenRouter</span>
+              </div>
+              <p class="text-xs text-text-muted mt-3 leading-relaxed">
+                Access dozens of hosted open-source models through a unified key.
+              </p>
+            </div>
+            <div class="text-[10px] font-mono text-accent bg-accent-soft rounded px-1.5 py-0.5 mt-4 self-start font-semibold uppercase">
+              planned
+            </div>
+          </div>
+
+          <!-- Custom -->
+          <div class="border border-dashed border-border rounded-xl p-5 opacity-75 hover:opacity-100 transition-all duration-200 bg-white/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
+                  <Plug size={16} />
+                </div>
+                <span class="font-mono font-semibold text-sm text-text">Custom Endpoint</span>
+              </div>
+              <p class="text-xs text-text-muted mt-3 leading-relaxed">
+                Connect your custom or self-hosted OpenAI-compatible gateways.
+              </p>
+            </div>
+            <div class="text-[10px] font-mono text-accent bg-accent-soft rounded px-1.5 py-0.5 mt-4 self-start font-semibold uppercase">
+              planned
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- "Why provider-agnostic" Section -->
+      <section class="reveal-on-scroll opacity-0 mt-24 pt-16 border-t border-border">
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Column 1: ShieldCheck -->
+          <div class="flex flex-col">
+            <div class="text-accent mb-4">
+              <ShieldCheck size={28} />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-text mb-2">
+              No lock-in
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Switch providers with one command. Your workflows, tools, and history stay identical.
+            </p>
+          </div>
+
+          <!-- Column 2: DollarSign -->
+          <div class="flex flex-col">
+            <div class="text-accent mb-4">
+              <DollarSign size={28} />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-text mb-2">
+              Cost control
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Route cheap models to exploration, stronger models to writes — you decide the tradeoff.
+            </p>
+          </div>
+
+          <!-- Column 3: Lock -->
+          <div class="flex flex-col">
+            <div class="text-accent mb-4">
+              <Lock size={28} />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-text mb-2">
+              Your keys, your machine
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Credentials live in <code class="font-mono text-xs bg-black/5 px-1 py-0.5 rounded text-text">~/.deepcli.json</code> locally. Nimicode never phones home.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Config Reference Panel -->
+      <section class="reveal-on-scroll opacity-0 mt-24">
+        <h3 class="text-xs font-mono text-text-muted/60 uppercase tracking-widest mb-4">PROVIDER CLI SPECIFICATION</h3>
+        <div class="w-full bg-terminal-bg rounded-xl border border-terminal-border shadow-lg flex flex-col overflow-hidden">
+          <!-- Window header -->
+          <div class="flex items-center justify-between px-4 py-3 border-b border-terminal-border bg-terminal-bg/80 select-none">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
+              <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+            </div>
+            <span class="font-mono text-xs text-terminal-text/40 font-medium">
+              nimicode --help (providers CLI)
+            </span>
+            <div class="w-10" />
+          </div>
+          
+          <!-- CLI content -->
+          <div class="p-5 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto text-terminal-text select-text">
+            <div class="space-y-4">
+              <div>
+                <span class="text-terminal-text/40 block">// stores your credentials locally</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-accent select-none font-bold">$</span>
+                  <span>nimicode providers login <span style="color: #7DD3FC">-p</span> deepseek <span style="color: #7DD3FC">-a</span> sk-...</span>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-terminal-text/40 block">// sets active provider + model selection</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-accent select-none font-bold">$</span>
+                  <span>nimicode providers set deepseek/deepseek-chat</span>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-terminal-text/40 block">// lists configured and available providers</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-accent select-none font-bold">$</span>
+                  <span>nimicode providers list</span>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-terminal-text/40 block">// revokes credentials and clears local session cache</span>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-accent select-none font-bold">$</span>
+                  <span>nimicode providers logout <span style="color: #7DD3FC">-p</span> deepseek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Simple CSS IntersectionObserver reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-up');
+        entry.target.classList.remove('opacity-0');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

@@ -11,27 +11,25 @@ import { ArrowRight, Github, Terminal } from 'lucide-react';
     <div class="flex flex-col max-w-[560px]">
       
       <!-- Heading -->
-      <h1 class="animate-fade-up font-heading font-semibold text-text leading-[1.08] tracking-[-0.015em] mb-5 opacity-0 select-text" style="font-size: clamp(1.85rem, 4.6vw, 3.25rem); animation-fill-mode: forwards;">
-        <span class="inline-flex items-center justify-center bg-accent-soft rounded-lg px-2.5 py-1 mr-1.5 align-middle -translate-y-[3px]">
-          <Terminal className="text-accent w-[28px] h-[28px]" />
-        </span>Your terminal, now an <span class="text-accent">autonomous coding agent</span>
+      <h1 class="animate-fade-up font-heading font-semibold text-text leading-[1.08] tracking-[-0.02em] mb-5 opacity-0 select-text" style="font-size: clamp(2rem, 4.8vw, 3.5rem); animation-fill-mode: forwards;">
+        The Lightest, Most <span class="text-accent">Steerable</span> AI Coding Agent in Your Terminal.
       </h1>
       
       <!-- Subtext -->
       <p class="animate-fade-up font-body font-normal text-text-muted leading-[1.65] mb-8 opacity-0 [animation-delay:150ms] select-text" style="font-size: clamp(0.95rem, 2.2vw, 1.125rem); max-width: 520px; animation-fill-mode: forwards;">
-        Nimicode reads, writes, and runs commands in your workspace — thinking in a loop until the job is done. Open source, provider-agnostic, and it never leaves your machine.
+        Stop wasting tokens on bloated context. Nimicode uses a dual-loop Planner-Executor architecture to solve complex tasks with 90% lower API bills. Beautiful TUI. Completely local. Aggressively steerable.
       </p>
       
       <!-- CTA buttons row -->
       <div class="animate-fade-up opacity-0 [animation-delay:300ms]" style="animation-fill-mode: forwards;">
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap items-center gap-3">
           <!-- Primary CTA Button -->
           <a 
             href="#install" 
-            class="bg-accent text-white rounded-full px-[26px] py-[15px] font-mono font-semibold text-[clamp(0.875rem,1.8vw,0.95rem)] shadow-[0_4px_20px_rgba(22,163,74,0.24)] min-width-[200px] flex justify-between items-center gap-6 transition-all duration-300 hover:scale-[1.03] hover:brightness-108 active:scale-[0.97] group"
+            class="bg-text text-bg rounded-lg px-6 py-3 font-sans font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-150 hover:bg-text/90 active:scale-[0.97] group"
           >
-            <span>Install Nimicode</span>
-            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <span>Get Started</span>
+            <ArrowRight size={16} className="transition-transform duration-150 group-hover:translate-x-0.5" />
           </a>
           
           <!-- Secondary CTA Button -->
@@ -39,15 +37,15 @@ import { ArrowRight, Github, Terminal } from 'lucide-react';
             href="https://github.com/Harsh16gupta/Nimicode-web"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-transparent border border-border text-text rounded-full px-[26px] py-[15px] font-mono font-semibold text-[clamp(0.875rem,1.8vw,0.95rem)] flex items-center justify-center gap-2 transition-all duration-300 hover:border-text active:scale-[0.98]"
+            class="bg-transparent border border-border text-text rounded-lg px-6 py-3 font-sans font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-150 hover:bg-white/5 hover:border-text-muted active:scale-[0.97]"
           >
-            <Github size={18} />
+            <Github size={16} />
             <span>View on GitHub</span>
           </a>
         </div>
 
         {/* Copy-pasteable Command component React Island */}
-        <div class="flex flex-col items-start" id="install">
+        <div class="flex flex-col items-start mt-2" id="install">
           <InstallCommand client:load />
         </div>
       </div>

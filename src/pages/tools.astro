@@ -8,18 +8,18 @@ import { GitBranch, Search, TestTube2, RotateCcw } from 'lucide-react';
 <Layout title="Tools — Nimicode Agent Tools Loop" description="Every action Nimicode takes — reading, writing, executing — funnels through a typed tool interface. Here's what ships today.">
   <Navbar />
   
-  <main class="relative min-h-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(22,163,74,0.04),rgba(255,255,255,0))] pt-20 pb-24 overflow-x-hidden">
+  <main class="relative min-h-screen bg-[#09090B] pt-20 pb-24 overflow-x-hidden">
     <div class="max-w-[1280px] mx-auto px-5 sm:px-8 pt-[clamp(48px,8vw,88px)]">
       
       <!-- Page Header -->
       <header class="animate-fade-up max-w-[800px]">
-        <span class="text-xs font-mono text-accent bg-accent-soft rounded-full px-3 py-1 inline-block mb-4 tracking-wider uppercase font-semibold">
-          THE AGENT'S HANDS
+        <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+          The Agent's Hands
         </span>
-        <h1 class="font-heading font-semibold text-text leading-[1.1] tracking-[-0.015em] mb-5" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+        <h1 class="font-heading font-bold text-text leading-[1.1] tracking-tight mb-5" style="font-size: clamp(2rem, 4.5vw, 3rem);">
           Three tools. One loop.<br />Infinitely composable.
         </h1>
-        <p class="font-body font-normal text-text-muted leading-[1.6] max-w-[640px] text-[clamp(0.95rem,2vw,1.1rem)]">
+        <p class="text-text-muted leading-relaxed max-w-[640px] text-xs">
           Every action Nimicode takes — reading, writing, executing — funnels through a typed tool interface the LLM calls directly. Here's what ships today, and what's next.
         </p>
       </header>
@@ -29,87 +29,87 @@ import { GitBranch, Search, TestTube2, RotateCcw } from 'lucide-react';
 
       <!-- "Coming Soon" Row -->
       <div class="reveal-on-scroll opacity-0 mt-10">
-        <h3 class="text-xs font-mono text-text-muted/60 uppercase tracking-widest mb-4">COMING SOON TO THE LOOP</h3>
+        <h3 class="text-[10px] font-mono text-text-muted/60 uppercase tracking-widest mb-4 font-bold">COMING SOON TO THE LOOP</h3>
         <div class="flex gap-3 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
           <!-- Card 1 -->
-          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
-            <div class="text-text-muted/80">
-              <GitBranch size={16} />
+          <div class="border border-border rounded-lg px-4 py-3 flex items-center gap-3 text-xs text-text-muted shrink-0 hover:border-zinc-700 transition-colors bg-[#0B0B0D]">
+            <div class="text-text-muted/65">
+              <GitBranch size={14} />
             </div>
             <div>
-              <span class="font-mono font-semibold text-text">git_diff / git_commit</span>
+              <span class="font-mono font-bold text-text">git_diff / git_commit</span>
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
-            <div class="text-text-muted/80">
-              <Search size={16} />
+          <div class="border border-border rounded-lg px-4 py-3 flex items-center gap-3 text-xs text-text-muted shrink-0 hover:border-zinc-700 transition-colors bg-[#0B0B0D]">
+            <div class="text-text-muted/65">
+              <Search size={14} />
             </div>
             <div>
-              <span class="font-mono font-semibold text-text">grep_search</span>
+              <span class="font-mono font-bold text-text">grep_search</span>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
-            <div class="text-text-muted/80">
-              <TestTube2 size={16} />
+          <div class="border border-border rounded-lg px-4 py-3 flex items-center gap-3 text-xs text-text-muted shrink-0 hover:border-zinc-700 transition-colors bg-[#0B0B0D]">
+            <div class="text-text-muted/65">
+              <TestTube2 size={14} />
             </div>
             <div>
-              <span class="font-mono font-semibold text-text">run_tests (structured)</span>
+              <span class="font-mono font-bold text-text">run_tests (structured)</span>
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="border border-dashed border-border rounded-xl px-4 py-3 flex items-center gap-3 text-sm text-text-muted shrink-0 opacity-70 hover:opacity-100 hover:border-text-muted/30 transition-all duration-200 bg-white/40">
-            <div class="text-text-muted/80">
-              <RotateCcw size={16} />
+          <div class="border border-border rounded-lg px-4 py-3 flex items-center gap-3 text-xs text-text-muted shrink-0 hover:border-zinc-700 transition-colors bg-[#0B0B0D]">
+            <div class="text-text-muted/65">
+              <RotateCcw size={14} />
             </div>
             <div>
-              <span class="font-mono font-semibold text-text">checkpoint / undo</span>
+              <span class="font-mono font-bold text-text">checkpoint / undo</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- "How tools plug in" Section -->
+      {/* "How tools plug in" Section */}
       <section class="reveal-on-scroll opacity-0 mt-24">
         <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           <!-- Left: Ordered list -->
           <div class="flex flex-col">
-            <h2 class="font-heading font-semibold text-text text-2xl lg:text-3xl mb-6">
+            <h2 class="font-heading font-bold text-text text-xl sm:text-2xl mb-6 tracking-tight">
               Add a tool in four steps
             </h2>
-            <ol class="space-y-4">
+            <ol class="space-y-4 text-xs">
               <li class="flex items-start gap-4">
-                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                  1
+                <span class="text-accent font-mono font-bold select-none mt-0.5 shrink-0">
+                  [1]
                 </span>
-                <span class="text-text-muted leading-relaxed">
-                  Implement it in <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/</code>
+                <span class="text-text-muted leading-relaxed font-sans">
+                  Implement it in <code class="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/</code>
                 </span>
               </li>
               <li class="flex items-start gap-4">
-                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                  2
+                <span class="text-accent font-mono font-bold select-none mt-0.5 shrink-0">
+                  [2]
                 </span>
-                <span class="text-text-muted leading-relaxed">
-                  Export it from <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/index.ts</code>
-                </span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                  3
-                </span>
-                <span class="text-text-muted leading-relaxed">
-                  Add its JSON schema to <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">toolDefinitions</code>
+                <span class="text-text-muted leading-relaxed font-sans">
+                  Export it from <code class="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">src/tools/index.ts</code>
                 </span>
               </li>
               <li class="flex items-start gap-4">
-                <span class="w-6 h-6 rounded-full bg-accent-soft text-accent font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                  4
+                <span class="text-accent font-mono font-bold select-none mt-0.5 shrink-0">
+                  [3]
                 </span>
-                <span class="text-text-muted leading-relaxed">
-                  Add a case to the <code class="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">executeTool</code> switch
+                <span class="text-text-muted leading-relaxed font-sans">
+                  Add its JSON schema to <code class="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">toolDefinitions</code>
+                </span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="text-accent font-mono font-bold select-none mt-0.5 shrink-0">
+                  [4]
+                </span>
+                <span class="text-text-muted leading-relaxed font-sans">
+                  Add a case to the <code class="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">executeTool</code> switch
                 </span>
               </li>
             </ol>
@@ -181,10 +181,10 @@ import { GitBranch, Search, TestTube2, RotateCcw } from 'lucide-react';
     background: transparent;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgba(20, 22, 26, 0.08);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 99px;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: rgba(20, 22, 26, 0.16);
+    background: rgba(255, 255, 255, 0.24);
   }
 </style>

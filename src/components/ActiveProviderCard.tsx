@@ -22,51 +22,45 @@ export default function ActiveProviderCard() {
       animate={{ 
         opacity: 1, 
         y: 0,
-        boxShadow: [
-          '0 0 0 0 rgba(22, 163, 74, 0)',
-          '0 0 0 8px rgba(22, 163, 74, 0.15)',
-          '0 0 0 16px rgba(22, 163, 74, 0)'
-        ]
       }}
       transition={{ 
         opacity: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
         y: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-        boxShadow: { duration: 1.2, times: [0, 0.5, 1], ease: 'easeInOut' }
       }}
-      className="mt-14 bg-surface border-2 border-accent rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6"
+      className="mt-14 bg-[#0B0B0D] border border-border hover:border-zinc-700 rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-colors duration-150"
     >
       {/* Left Column: Details */}
       <div className="flex flex-col gap-2.5 items-start">
-        <div className="flex items-center gap-3">
-          <span className="bg-accent text-white text-[10px] font-mono font-bold rounded-full px-2 py-0.5 tracking-wide select-none">
-            LIVE
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono font-bold text-accent select-none">
+            [LIVE]
           </span>
-          <h3 className="font-heading text-xl font-semibold text-text">
+          <h3 className="font-heading text-lg font-bold text-text">
             DeepSeek
           </h3>
         </div>
-        <p className="text-text-muted text-sm leading-relaxed">
-          OpenAI-compatible API · <code className="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">deepseek-chat</code> / <code className="font-mono text-xs bg-black/5 px-1.5 py-0.5 rounded text-text font-medium">deepseek-coder</code>
+        <p className="text-text-muted text-xs leading-relaxed">
+          OpenAI-compatible API · <code className="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">deepseek-chat</code> / <code className="font-mono text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-text font-medium">deepseek-coder</code>
         </p>
       </div>
 
       {/* Right Column: Code Pill */}
       <div className="flex items-center">
-        <div className="bg-terminal-bg text-terminal-text font-mono text-xs rounded-lg px-4 py-2.5 inline-flex items-center justify-between gap-3 border border-terminal-border select-all w-full md:w-auto">
+        <div className="bg-black text-zinc-300 font-mono text-xs rounded-lg px-4 py-2 flex items-center justify-between gap-3 border border-border select-all w-full md:w-auto">
           <span className="flex items-center gap-2 whitespace-nowrap">
-            <span className="text-accent/60 select-none">$</span>
+            <span className="text-text-muted/40 select-none font-bold">$</span>
             <span>{command}</span>
           </span>
           <button
             onClick={handleCopy}
-            className="text-terminal-text/50 hover:text-terminal-text transition-colors p-1 rounded hover:bg-white/10 shrink-0"
+            className="text-text-muted hover:text-text transition-colors p-1 rounded hover:bg-white/5 shrink-0"
             title="Copy command to clipboard"
             aria-label="Copy set provider command"
           >
             {copied ? (
-              <Check size={14} className="text-accent" />
+              <Check size={12} className="text-accent" />
             ) : (
-              <Copy size={14} />
+              <Copy size={12} />
             )}
           </button>
         </div>

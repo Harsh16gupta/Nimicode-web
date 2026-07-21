@@ -86,7 +86,7 @@ export default function MobileMenu() {
       {/* Mobile Hamburger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden p-2 text-text/80 hover:text-text transition-colors rounded-lg hover:bg-black/5"
+        className="md:hidden p-2 text-text/80 hover:text-text transition-colors rounded-lg hover:bg-white/5"
         aria-label="Open navigation menu"
       >
         <Menu size={24} />
@@ -117,15 +117,15 @@ export default function MobileMenu() {
               {/* Header */}
               <div className="flex items-center justify-between pb-4">
                 <div className="flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="none">
-                    <path d="M32 32 L96 32 L96 96 L160 96 L160 32 L224 32 L224 224 L160 224 L160 128 L96 128 L96 224 L32 224 Z" fill="var(--color-text)"/>
-                    <rect x="96" y="96" width="64" height="64" fill="var(--color-accent)"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-text">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
                   </svg>
-                  <span className="font-mono text-base font-semibold tracking-tight">nimicode</span>
+                  <span className="font-mono text-sm font-bold tracking-tight lowercase text-text select-none">nimicode</span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 text-text/75 hover:text-text transition-colors rounded-lg hover:bg-black/5"
+                  className="p-2 text-text/75 hover:text-text transition-colors rounded-lg hover:bg-white/5"
                   aria-label="Close navigation menu"
                 >
                   <X size={20} />
@@ -157,17 +157,17 @@ export default function MobileMenu() {
               <div className="flex-grow" />
 
               {/* Bottom CTAs */}
-              <div className="flex flex-col gap-3 pt-6 border-t border-border">
+              <div className="flex flex-col gap-2.5 pt-6 border-t border-border">
                 {/* GitHub star pill */}
                 <a
                   href="https://github.com/Harsh16gupta/Nimicode-web"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-border rounded-full px-4 py-2.5 text-sm font-mono flex items-center justify-center gap-1.5 hover:border-text transition-colors bg-bg/50"
+                  className="border border-border rounded-lg px-4 py-2 text-xs font-mono flex items-center justify-center gap-1.5 hover:bg-white/5 transition-colors"
                 >
-                  <Star size={14} className="fill-current" />
+                  <Star size={12} className="fill-current text-text-muted" />
                   <span>Star</span>
-                  <span className="text-text-muted text-xs">|</span>
+                  <span className="text-border">|</span>
                   <span className="text-text font-semibold">{stars}</span>
                 </a>
 
@@ -175,9 +175,9 @@ export default function MobileMenu() {
                 <a
                   href="#install"
                   onClick={() => setIsOpen(false)}
-                  className="bg-accent hover:bg-accent-hover text-white rounded-full px-5 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+                  className="bg-text hover:bg-text/90 text-bg rounded-lg px-5 py-2.5 text-xs font-semibold flex items-center justify-center gap-2 transition-all duration-150 active:scale-95"
                 >
-                  <Terminal size={16} />
+                  <Terminal size={14} />
                   <span>Install nimicode</span>
                 </a>
               </div>

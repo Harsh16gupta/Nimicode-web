@@ -67,32 +67,30 @@ export default function ToolsGrid() {
             initial="hidden"
             animate="visible"
             variants={cardVariants}
-            className="bg-surface border border-border rounded-2xl p-6 flex flex-col justify-between hover:border-accent hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
+            className="bg-[#0B0B0D] border border-border rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition-colors duration-150"
           >
             <div>
               {/* Top row */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-accent-soft flex items-center justify-center text-accent">
-                  <IconComponent size={20} />
-                </div>
-                <span className="font-mono text-lg font-semibold text-text">
+              <div className="flex items-center gap-2 text-text-muted mb-3">
+                <IconComponent size={15} />
+                <span className="font-mono text-sm font-bold text-text">
                   {tool.name}
                 </span>
               </div>
 
               {/* Description */}
-              <p className="text-text-muted text-sm mt-3 leading-relaxed">
+              <p className="text-text-muted text-xs leading-relaxed font-sans">
                 {tool.description}
               </p>
             </div>
 
             {/* Terminal snippet */}
-            <div className="bg-terminal-bg rounded-lg p-3 mt-5 font-mono text-xs text-terminal-text border border-terminal-border select-text">
-              <div className="flex items-center gap-1.5 mb-1 text-terminal-text/80">
-                <span className="text-accent select-none font-semibold">→</span>
+            <div className="bg-black rounded-lg p-3 mt-5 font-mono text-[11px] text-terminal-text border border-border select-text">
+              <div className="flex items-center gap-1.5 mb-1 text-text-muted">
+                <span className="text-text-muted/50 select-none font-semibold">→</span>
                 <span>{tool.snippet.command}</span>
               </div>
-              <div className="text-[#4ADE80] font-semibold pl-3">
+              <div className="text-emerald-400 font-semibold pl-3">
                 {tool.snippet.result}
               </div>
             </div>

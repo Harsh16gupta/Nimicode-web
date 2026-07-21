@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --font-heading: 'Space Grotesk', sans-serif;
+  --font-heading: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-bg: #FAFAF8;
-  --color-surface: #FFFFFF;
-  --color-text: #14161A;
-  --color-text-muted: rgba(20, 22, 26, 0.64);
-  --color-border: rgba(20, 22, 26, 0.09);
-  --color-accent: #16A34A;
-  --color-accent-hover: #15803D;
-  --color-accent-soft: rgba(22, 163, 74, 0.10);
-  --color-terminal-bg: #0F1115;
+  --color-bg: #09090B;
+  --color-surface: #09090B;
+  --color-text: #F4F4F5;
+  --color-text-muted: #A1A1AA;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-accent: #FBBF24;
+  --color-accent-hover: #F59E0B;
+  --color-accent-soft: rgba(251, 191, 36, 0.05);
+  --color-terminal-bg: #09090B;
   --color-terminal-text: #E4E4E7;
-  --color-terminal-border: rgba(255, 255, 255, 0.08);
+  --color-terminal-border: rgba(255, 255, 255, 0.06);
 }
 
 @layer base {
@@ -31,7 +31,7 @@
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translateY(26px);
+    transform: translateY(16px);
   }
   100% {
     opacity: 1;
@@ -40,7 +40,7 @@
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Blinking terminal cursor */
@@ -50,5 +50,26 @@
 }
 
 .animate-blink {
-  animation: blink 1s step-end infinite;
+  animation: blink 1.2s step-end infinite;
 }
+
+/* Modern Glassmorphism & High-Precision Border Utilities */
+.glass-panel {
+  background: rgba(9, 9, 11, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.flat-card {
+  background: #09090B;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+.flat-card-hover:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+

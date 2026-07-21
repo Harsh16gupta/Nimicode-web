@@ -2,16 +2,351 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import { 
+  Database, 
+  EyeOff, 
+  HelpCircle, 
+  Terminal, 
+  Cpu, 
+  ArrowRight, 
+  GitCommit, 
+  Compass, 
+  ShieldCheck, 
+  Sliders, 
+  FileText, 
+  Binary, 
+  Layers, 
+  CheckCircle,
+  FolderDot
+} from 'lucide-react';
 ---
 
-<Layout title="Nimicode — Autonomous AI Coding Agent in your Terminal">
-  <!-- Navbar wrapper spacing -->
+<Layout title="Nimicode — The Lightest, Most Steerable AI Coding Agent in Your Terminal">
   <Navbar />
   
-  <main class="relative min-h-screen flex flex-col justify-center overflow-x-hidden">
-    <!-- Grid/Dot/Ambient glow styling background effects -->
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(22,163,74,0.06),rgba(255,255,255,0))]" />
+  <main class="w-full bg-[#09090B] flex flex-col justify-start pt-16">
     
-    <Hero />
+    {/* 1. Hero Section */}
+    <div class="w-full border-b border-border bg-[#09090B]">
+      <Hero />
+    </div>
+
+    {/* 2. The Problem Section */}
+    <section class="w-full max-w-[1280px] mx-auto px-5 sm:px-8 py-20 border-b border-border">
+      <div class="max-w-[600px] mb-14">
+        <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+          The Friction
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text">
+          What developers hate about modern AI agents.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {/* Bloat Card */}
+        <div class="bg-[#0B0B0D] border border-border rounded-xl p-6 hover:border-zinc-700 transition-colors duration-150">
+          <div class="flex items-center gap-2 mb-3.5 text-text-muted">
+            <Database size={15} />
+            <h3 class="font-bold text-text text-sm">The Token Bloat</h3>
+          </div>
+          <p class="text-text-muted text-xs leading-relaxed">
+            Standard agents send your entire workspace and endless chat history on every turn. Your prompt cache is blown, and your API bill skyrockets.
+          </p>
+        </div>
+
+        {/* Black Box Card */}
+        <div class="bg-[#0B0B0D] border border-border rounded-xl p-6 hover:border-zinc-700 transition-colors duration-150">
+          <div class="flex items-center gap-2 mb-3.5 text-text-muted">
+            <EyeOff size={15} />
+            <h3 class="font-bold text-text text-sm">The "Black Box" Loop</h3>
+          </div>
+          <p class="text-text-muted text-xs leading-relaxed">
+            Agents either run completely autonomously (deleting files without safety) or spam you with constant <code class="font-mono text-[10px] bg-white/5 px-1 py-0.5 rounded text-accent">y/n</code> permission popups. There is no middle ground.
+          </p>
+        </div>
+
+        {/* Telemetry Card */}
+        <div class="bg-[#0B0B0D] border border-border rounded-xl p-6 hover:border-zinc-700 transition-colors duration-150">
+          <div class="flex items-center gap-2 mb-3.5 text-text-muted">
+            <HelpCircle size={15} />
+            <h3 class="font-bold text-text text-sm">The Extension Bloat</h3>
+          </div>
+          <p class="text-text-muted text-xs leading-relaxed">
+            You don't want another heavy IDE extension tracking your telemetry. You want a tool that lives in your terminal, respects your configurations, and stays out of your way.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* 3. The Core Solution: Dual-Loop Engine */}
+    <section class="w-full max-w-[1280px] mx-auto px-5 sm:px-8 py-20 border-b border-border">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        {/* Left text column */}
+        <div class="lg:col-span-5 flex flex-col">
+          <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+            The Engine
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text mb-5">
+            The Planner-Executor Dual-Loop Engine.
+          </h2>
+          <p class="text-text-muted text-xs leading-relaxed mb-6">
+            Instead of running one large model to do everything, Nimicode splits the job to give you maximum intelligence at a fraction of the cost.
+          </p>
+
+          <div class="space-y-4 font-mono text-[11px] sm:text-xs">
+            <div class="flex gap-3">
+              <span class="text-accent font-bold select-none">[P]</span>
+              <div>
+                <h4 class="font-bold text-text text-xs leading-none font-sans">The Planner (The Architect)</h4>
+                <p class="text-text-muted leading-relaxed mt-1.5 font-sans text-xs">
+                  Runs on premium models (Gemini Pro, Claude Sonnet). It understands the big picture, analyzes codebase architecture, and maps out a checklist.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <span class="text-text-muted select-none">[E]</span>
+              <div>
+                <h4 class="font-bold text-text text-xs leading-none font-sans">The Executor (The Builder)</h4>
+                <p class="text-text-muted leading-relaxed mt-1.5 font-sans text-xs">
+                  Runs on lightning-fast, cheap models (Gemini Flash, DeepSeek Chat). Operates in a tight loop modifying files, executing tests, and verifying compilation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right diagram column */}
+        <div class="lg:col-span-7 flex justify-center w-full">
+          <div class="w-full max-w-[520px] bg-black border border-border rounded-xl p-6 flex flex-col items-center select-none font-mono text-xs">
+            
+            {/* User Input node */}
+            <div class="border border-border bg-[#0B0B0D] px-3.5 py-1.5 rounded-lg text-[10px] font-bold text-text flex items-center gap-2">
+              <span>USER INPUT</span>
+            </div>
+
+            {/* Vertical Line */}
+            <div class="w-px h-6 bg-border my-1" />
+
+            {/* Planner node */}
+            <div class="w-full max-w-[320px] bg-[#0B0B0D] border border-border rounded-lg p-4 flex flex-col gap-1">
+              <div class="flex justify-between items-center text-[10px]">
+                <span class="font-bold text-accent">PLANNER (Architect)</span>
+                <span class="text-text-muted/50">PREMIUM LLM</span>
+              </div>
+              <p class="text-[10px] text-text-muted font-sans leading-relaxed mt-1">
+                Reads prompt, scans directories, builds file dependency trees, and compiles a plan checklist.
+              </p>
+            </div>
+
+            {/* Vertical Line */}
+            <div class="w-px h-6 bg-border my-1" />
+
+            {/* Executor node */}
+            <div class="w-full max-w-[320px] bg-[#0B0B0D] border border-border rounded-lg p-4 flex flex-col gap-1 relative">
+              <div class="flex justify-between items-center text-[10px]">
+                <span class="font-bold text-text">EXECUTOR (Builder)</span>
+                <span class="text-text-muted/50">CHEAP LLM</span>
+              </div>
+              <p class="text-[10px] text-text-muted font-sans leading-relaxed mt-1">
+                Applies incremental edits in a tight loop, runs tests, and fixes compilation errors instantly.
+              </p>
+              
+              {/* Loop feedback line */}
+              <div class="absolute right-[-24px] top-[-52px] bottom-[20px] w-6 border-y border-r border-dashed border-border rounded-r-lg pointer-events-none" />
+              <div class="absolute right-[-100px] top-[-26px] text-[9px] text-text-muted/40 whitespace-nowrap rotate-90 transform origin-left">
+                Pruned Diff &amp; Summary
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    {/* 4. Key Differentiators */}
+    <section class="w-full max-w-[1280px] mx-auto px-5 sm:px-8 py-20 border-b border-border">
+      <div class="max-w-[600px] mb-14">
+        <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+          Features
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text">
+          Superpowers built for developer speed.
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        {/* Feature 1 */}
+        <div class="border border-border hover:border-zinc-700 rounded-xl p-5 transition-colors duration-150 flex gap-4">
+          <div class="text-accent mt-0.5 shrink-0">
+            <Compass size={16} />
+          </div>
+          <div>
+            <h3 class="font-bold text-text text-sm mb-1.5 font-mono">⚡ Semantic Handoff (Context Pruning)</h3>
+            <p class="text-text-muted text-xs leading-relaxed font-sans">
+              No more token tax. When the Executor completes its work, Nimicode discards the worker’s intermediate compiler logs. The Planner only receives the final Git Diff and a summary. Reduces API costs by up to 90%.
+            </p>
+          </div>
+        </div>
+
+        {/* Feature 2 */}
+        <div class="border border-border hover:border-zinc-700 rounded-xl p-5 transition-colors duration-150 flex gap-4">
+          <div class="text-accent mt-0.5 shrink-0">
+            <ShieldCheck size={16} />
+          </div>
+          <div>
+            <h3 class="font-bold text-text text-sm mb-1.5 font-mono">🐕 The Git-Diff Watchdog</h3>
+            <p class="text-text-muted text-xs leading-relaxed font-sans">
+              Self-verifying code changes. Before code is committed, Nimicode automatically runs a git diff and reviews it against your project rules. Detects missing imports, forgotten console logs, and syntax errors.
+            </p>
+          </div>
+        </div>
+
+        {/* Feature 3 */}
+        <div class="border border-border hover:border-zinc-700 rounded-xl p-5 transition-colors duration-150 flex gap-4">
+          <div class="text-accent mt-0.5 shrink-0">
+            <Sliders size={16} />
+          </div>
+          <div>
+            <h3 class="font-bold text-text text-sm mb-1.5 font-mono">🎛️ Interactive Steering (y/n/s)</h3>
+            <p class="text-text-muted text-xs leading-relaxed font-sans">
+              You are in the driver's seat. Don't just watch the agent make mistakes. Pause execution at any time. Press <code class="font-mono text-[10px] bg-white/5 px-1 py-0.5 rounded text-accent">s</code> to steer the Executor mid-flight and adapt its course instantly.
+            </p>
+          </div>
+        </div>
+
+        {/* Feature 4 */}
+        <div class="border border-border hover:border-zinc-700 rounded-xl p-5 transition-colors duration-150 flex gap-4">
+          <div class="text-accent mt-0.5 shrink-0">
+            <FolderDot size={16} />
+          </div>
+          <div>
+            <h3 class="font-bold text-text text-sm mb-1.5 font-mono">📂 Local Alignment (AGENTS.md)</h3>
+            <p class="text-text-muted text-xs leading-relaxed font-sans">
+              Your repo, your rules. Nimicode dynamically checks your project folder for an <code class="font-mono text-[10px] bg-white/5 px-1 py-0.5 rounded text-accent">AGENTS.md</code> file. It reads your conventions (e.g. "We use Vitest") and automatically aligns prompts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 5. TUI Showcase */}
+    <section class="w-full max-w-[1280px] mx-auto px-5 sm:px-8 py-20 border-b border-border">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+            TUI Experience
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text mb-6">
+            A beautiful React-based TUI in your terminal.
+          </h2>
+          <p class="text-text-muted text-xs leading-relaxed mb-8">
+            Nimicode uses <strong>Ink</strong> to render a reactive, stateful CLI right in your standard terminal window.
+          </p>
+
+          <ul class="space-y-3 text-xs">
+            <li class="flex items-center gap-2.5 text-text">
+              <span class="text-accent font-bold select-none">•</span>
+              <span>Amber-themed Splash Screen for CLI loading</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-text">
+              <span class="text-accent font-bold select-none">•</span>
+              <span>Live Status Trackers detailing model thought stages</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-text">
+              <span class="text-accent font-bold select-none">•</span>
+              <span>Syntax-highlighted code block outputs in the viewport</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-text">
+              <span class="text-accent font-bold select-none">•</span>
+              <span>Command Bar with interactive commands (/help, /clear)</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Styled preview terminal */}
+        <div class="w-full bg-[#030712] border border-border rounded-lg shadow-xl overflow-hidden flex flex-col font-mono text-xs text-terminal-text select-none">
+          <div class="flex items-center justify-between px-4 py-2 bg-black/40 border-b border-border">
+            <span class="text-[10px] text-text-muted/65">[ nimicode --tui ]</span>
+          </div>
+          <div class="p-5 space-y-4">
+            <div class="text-[#FBBF24] font-bold text-center py-2 border-y border-dashed border-[#FBBF24]/20 bg-[#FBBF24]/5 rounded">
+              NIMICODE AGENT v0.1.0
+            </div>
+            <div class="space-y-1">
+              <div class="text-text-muted">● EXPLORING WORKSPACE... done (42 files)</div>
+              <div class="text-accent font-bold">● ACTIVE TOOL: grep_search --query "divide"</div>
+              <div class="text-emerald-400 pl-3">✓ Found 3 matches in src/math.ts</div>
+            </div>
+            <div class="p-3 bg-black border border-border rounded text-[11px] leading-relaxed">
+              <span class="text-text-muted font-bold block mb-1">src/math.ts : 12-14</span>
+              <span class="text-red-400/90">- return a / b;</span><br />
+              <span class="text-emerald-400 font-semibold">+ if (b === 0) throw new Error("division by zero");</span><br />
+              <span class="text-emerald-400 font-semibold">+ return a / b;</span>
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-text-muted/40 border-t border-border pt-3">
+              <span>[Tab] Cycle Panel</span>
+              <span>[/] Open Command Menu</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 6. Technical Specifications & Stack */}
+    <section class="w-full max-w-[1280px] mx-auto px-5 sm:px-8 py-20">
+      <div class="max-w-[600px] mb-14">
+        <span class="text-[10px] font-mono text-text-muted tracking-widest uppercase font-bold block mb-3">
+          Specs
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-text">
+          Built for the modern stack.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+        {/* Spec 1 */}
+        <div class="border border-border rounded-xl p-5 hover:border-zinc-700 transition-colors duration-150 bg-[#0B0B0D]">
+          <div class="text-text font-mono text-sm font-bold mb-1.5">Bun</div>
+          <div class="text-text font-semibold text-xs">Runtime Engine</div>
+          <div class="text-text-muted text-[11px] mt-1 font-sans leading-relaxed">Instant startup, local execution</div>
+        </div>
+        {/* Spec 2 */}
+        <div class="border border-border rounded-xl p-5 hover:border-zinc-700 transition-colors duration-150 bg-[#0B0B0D]">
+          <div class="text-text font-mono text-sm font-bold mb-1.5">Ink</div>
+          <div class="text-text font-semibold text-xs">UI Framework</div>
+          <div class="text-text-muted text-[11px] mt-1 font-sans leading-relaxed">React components in standard CLI</div>
+        </div>
+        {/* Spec 3 */}
+        <div class="border border-border rounded-xl p-5 hover:border-zinc-700 transition-colors duration-150 bg-[#0B0B0D]">
+          <div class="text-text font-mono text-sm font-bold mb-1.5">Any LLM</div>
+          <div class="text-text font-semibold text-xs">Provider Agnostic</div>
+          <div class="text-text-muted text-[11px] mt-1 font-sans leading-relaxed">DeepSeek, Claude, OpenAI, Ollama</div>
+        </div>
+        {/* Spec 4 */}
+        <div class="border border-border rounded-xl p-5 hover:border-zinc-700 transition-colors duration-150 bg-[#0B0B0D]">
+          <div class="text-text font-mono text-sm font-bold mb-1.5">MIT License</div>
+          <div class="text-text font-semibold text-xs">Open Source</div>
+          <div class="text-text-muted text-[11px] mt-1 font-sans leading-relaxed">Fully hackable and self-hosted</div>
+        </div>
+      </div>
+    </section>
+
+    {/* Footer */}
+    <footer class="w-full border-t border-border/80 py-8 bg-black select-none text-xs font-mono text-text-muted/60">
+      <div class="max-w-[1280px] mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>
+          © {new Date().getFullYear()} Nimicode. MIT Licensed.
+        </div>
+        <div class="flex gap-6">
+          <a href="https://github.com/Harsh16gupta/Nimicode-web" class="hover:text-text transition-colors">GitHub</a>
+          <a href="/tools" class="hover:text-text transition-colors">Tools Loop</a>
+          <a href="/providers" class="hover:text-text transition-colors">Providers</a>
+          <a href="/roadmap" class="hover:text-text transition-colors">Roadmap</a>
+        </div>
+      </div>
+    </footer>
   </main>
 </Layout>
